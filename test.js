@@ -54,7 +54,7 @@ test('Build script', t => {
     .src(SOURCE_URL)
     .cmd(`cabal sandbox init --sandbox="${path.join(tmpDir, '.cabal-sandbox')}"`)
     .cmd('cabal update')
-    .cmd(`cabal install --bindir ${tmpDir} --jobs=${os.cpus().length}`)
+    .cmd(`cabal install --bindir ${tmpDir} --jobs=${os.cpus().length} --verbose=3`)
     .run(runErr => {
       /* istanbul ignore if */
       if (runErr) {
